@@ -8,7 +8,6 @@ export default function CreateAdmin() {
   const [password, setPassword] = useState('')
   const [error, setError] = useState<string | null>(null)
   const [success, setSuccess] = useState<string | null>(null)
-  const router = useRouter()
   const supabase = createClientComponentClient()
 
   const handleCreateAdmin = async (e: React.FormEvent) => {
@@ -72,25 +71,18 @@ export default function CreateAdmin() {
               />
             </div>
           </div>
-
-          {error && (
-            <div className="text-center text-sm text-red-600">{error}</div>
-          )}
-
-          {success && (
-            <div className="text-center text-sm text-green-600">{success}</div>
-          )}
-
           <div>
             <button
               type="submit"
-              className="group relative flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              className="group relative flex w-full justify-center rounded-md bg-indigo-600 py-2 px-3 text-sm font-semibold text-white hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >
               Create Admin
             </button>
           </div>
+          {error && <p className="text-red-500">{error}</p>}
+          {success && <p className="text-green-500">{success}</p>}
         </form>
       </div>
     </div>
   )
-} 
+}
