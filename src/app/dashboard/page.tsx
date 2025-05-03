@@ -3,8 +3,13 @@
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
 import { useEffect, useState } from 'react'
 
+interface User {
+  id: string;
+  email?: string;
+}
+
 export default function Profile() {
-  const [user, setUser] = useState<any>(null)
+  const [user, setUser] = useState<User | null>(null)
   const supabase = createClientComponentClient()
 
   useEffect(() => {
